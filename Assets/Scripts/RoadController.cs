@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class RoadController : MonoBehaviour
 {
-    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -18,7 +17,7 @@ public class RoadController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
+            GameManager.Instance.DestroyRoad(gameObject);
         }
     }
 }

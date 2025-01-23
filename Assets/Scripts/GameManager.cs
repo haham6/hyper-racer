@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,10 +13,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] private MoveButton leftMoveButton;
     [SerializeField] private MoveButton rightMoveButton;
     
+    [SerializeField] private TMP_Text gasText;
+    
+    private CarController _carController;
+    
     Queue<GameObject> _roadPool = new Queue<GameObject>();
     int _roadPoolSize = 3;
 
     private List<GameObject> _activeRoads = new List<GameObject>();
+    
+    public enum State
+    {
+        Start, Play, End
+    }
+    public State GameState { get; private set; } = State.Start;
+
 
     static GameManager _instance;
     public static GameManager Instance
@@ -55,17 +67,23 @@ public class GameManager : MonoBehaviour
         {
             activeRoad.transform.Translate(-Vector3.forward * Time.deltaTime);
         }
+
+        if (_carController)
+        {
+            gasText.text = _carController.Gas.ToString();
+
+        } 
     }
 
     void StartGame()
     {
         SpawnRoad(Vector3.zero);
         
-        var carController = Instantiate(carPrefab, new Vector3(0,0,-3f), Quaternion.identity)
+        _carController = Instantiate(carPrefab, new Vector3(0,0,-3f), Quaternion.identity)
             .GetComponent<CarController>();
 
-        leftMoveButton.OnMoveButtonDown += () => carController.Move(-1f);
-        rightMoveButton.OnMoveButtonDown += () => carController.Move(1f);
+        leftMoveButton.OnMoveButtonDown += () => _carController.Move(-1f);
+        rightMoveButton.OnMoveButtonDown += () => _carController.Move(1f);
     }
 
     #region 도로 생성 및 관리
@@ -101,9 +119,15 @@ public class GameManager : MonoBehaviour
         else
         {
             GameObject road = Instantiate(roadPrefab, position, Quaternion.identity);
-            
             _activeRoads.Add(road);
         }
+    }
+
+    public void DestroyRoad(GameObject road)
+    {
+        road.SetActive(false);
+        _activeRoads.Remove(road);
+        _roadPool.Enqueue(road);
     }
     
     #endregion
