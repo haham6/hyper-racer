@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     private List<GameObject> _activeRoads = new List<GameObject>();
     
+    private int _roadIndex = 0;
+    
     public enum State
     {
         Start, Play, End
@@ -58,6 +60,8 @@ public class GameManager : MonoBehaviour
     {
         InitializeRoadPool();
         
+        GameState = State.Start;
+        
         StartGame();
     }
 
@@ -84,6 +88,20 @@ public class GameManager : MonoBehaviour
 
         leftMoveButton.OnMoveButtonDown += () => _carController.Move(-1f);
         rightMoveButton.OnMoveButtonDown += () => _carController.Move(1f);
+        
+        GameState = State.Play;
+    }
+
+    public void EndGame()
+    {
+        GameState = State.End;
+        
+        Destroy(_carController.gameObject);
+
+        foreach (var activeRoad in _activeRoads)
+        {
+            activeRoad.SetActive(false);
+        }
     }
 
     #region 도로 생성 및 관리
@@ -108,19 +126,26 @@ public class GameManager : MonoBehaviour
     
     public void SpawnRoad(Vector3 position)
     {
+        GameObject road;
+        
         if (_roadPool.Count > 0)
         {
-            GameObject road = _roadPool.Dequeue();
+            road = _roadPool.Dequeue();
             road.transform.position = position;
             road.SetActive(true);
-            
-            _activeRoads.Add(road);
         }
         else
         {
-            GameObject road = Instantiate(roadPrefab, position, Quaternion.identity);
-            _activeRoads.Add(road);
+            road = Instantiate(roadPrefab, position, Quaternion.identity);
         }
+
+        if (_roadIndex > 0 && _roadIndex % 2 == 0)
+        {
+            road.GetComponent<RoadController>().SpawnGas();
+        }
+        
+        _activeRoads.Add(road);
+        _roadIndex++;
     }
 
     public void DestroyRoad(GameObject road)
