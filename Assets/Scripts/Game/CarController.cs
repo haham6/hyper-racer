@@ -20,9 +20,8 @@ public class CarController : MonoBehaviour
         while (true)
         {
             gas -= 10;
-            if (gas <= 0) break;
-            
             yield return new WaitForSeconds(1f);
+            if (gas <= 0) break;
         }
         
         GameManager.Instance.EndGame();
