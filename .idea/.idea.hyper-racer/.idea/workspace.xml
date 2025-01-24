@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="870ce3f5-058c-4b5a-b5cf-d6141856abc4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.hyper-racer/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.hyper-racer/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.hyper-racer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.hyper-racer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Gas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Gas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Road.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Road.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CarController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RoadController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RoadController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-    </list>
+    <list default="true" id="870ce3f5-058c-4b5a-b5cf-d6141856abc4" name="Changes" comment="스크립트 수정" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +29,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/Git/hyper-racer/Assets/Scripts/CarController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MoveButton.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -122,7 +113,7 @@
       <updated>1737599754110</updated>
       <workItem from="1737599770817" duration="12501000" />
       <workItem from="1737677061091" duration="297000" />
-      <workItem from="1737677398397" duration="3657000" />
+      <workItem from="1737677398397" duration="3964000" />
     </task>
     <task id="LOCAL-00001" summary="HYP-5 다수의 스크립트 수정">
       <option name="closed" value="true" />
@@ -132,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737615181960</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="스크립트 수정">
+      <option name="closed" value="true" />
+      <created>1737681704858</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1737681704858</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +148,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="HYP-5 다수의 스크립트 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="HYP-5 다수의 스크립트 수정" />
+    <MESSAGE value="스크립트 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="스크립트 수정" />
   </component>
 </project>
